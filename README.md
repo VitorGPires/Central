@@ -2,6 +2,20 @@
 
 Aplicação web de gestão pessoal e profissional em React, TypeScript e Vite. Reúne sete módulos em uma única interface com tema claro/escuro, persistência local no navegador (`localStorage`) e controles customizados no mesmo padrão visual.
 
+## Prévia
+
+### Painel inicial (modo claro e modo escuro)
+
+![Painel inicial no modo claro](docs/screenshots/dashboard-light.png)
+
+![Painel inicial no modo escuro](docs/screenshots/dashboard-dark.png)
+
+### Financeiro e Hábitos
+
+| Financeiro | Hábitos e Saúde Mental |
+| --- | --- |
+| ![Módulo Financeiro](docs/screenshots/financeiro-dark.png) | ![Módulo de Hábitos e Saúde Mental](docs/screenshots/habitos-dark.png) |
+
 ## Módulos
 
 | Módulo | Arquivo | O que faz |
