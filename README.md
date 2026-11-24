@@ -10,11 +10,13 @@ Aplicação web de gestão pessoal e profissional em React, TypeScript e Vite. R
 
 ![Painel inicial no modo escuro](docs/screenshots/dashboard-dark.png)
 
-### Financeiro e Hábitos
+### Financeiro
 
-| Financeiro | Hábitos e Saúde Mental |
-| --- | --- |
-| ![Módulo Financeiro](docs/screenshots/financeiro-dark.png) | ![Módulo de Hábitos e Saúde Mental](docs/screenshots/habitos-dark.png) |
+![Módulo Financeiro](docs/screenshots/financeiro-dark.png?v=2)
+
+### Hábitos e Saúde Mental
+
+![Módulo de Hábitos e Saúde Mental](docs/screenshots/habitos-dark.png?v=2)
 
 ## Módulos
 
