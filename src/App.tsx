@@ -3,12 +3,14 @@ import {
   Bell,
   HalfMoon as Moon,
   IconoirProvider,
+  JournalPage,
   Plus,
   Search,
   Sparks as Sparkles,
   SunLight as Sun,
 } from 'iconoir-react';
 import { Button } from './components/Button';
+import { NewsModal } from './components/NewsModal';
 import {
   AlertsModal,
   GlobalSearchModal,
@@ -55,6 +57,8 @@ const AppShell: React.FC = () => {
 
   const [searchOpen, setSearchOpen] = useState(false);
   const [alertsOpen, setAlertsOpen] = useState(false);
+  const [newsOpen, setNewsOpen] = useState(false);
+  const [hasUnreadNews, setHasUnreadNews] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
 
   useEffect(() => {
@@ -67,6 +71,7 @@ const AppShell: React.FC = () => {
       if (e.key === 'Escape') {
         setSearchOpen(false);
         setAlertsOpen(false);
+        setNewsOpen(false);
         setProfileOpen(false);
         return;
       }
@@ -174,6 +179,29 @@ const AppShell: React.FC = () => {
             </Button>
 
             <button
+              onClick={() => setNewsOpen(true)}
+              className="relative w-9 h-9 rounded-xl border flex items-center justify-center cursor-pointer"
+              style={{
+                backgroundColor: 'var(--bg-card)',
+                borderColor: 'var(--border-hairline)',
+                color: 'var(--text-secondary)',
+              }}
+              aria-label="Notícias"
+              title={hasUnreadNews ? 'Novas notícias disponíveis (The Guardian)' : 'Notícias (The Guardian)'}
+            >
+              <JournalPage className="w-4 h-4" />
+              {hasUnreadNews && (
+                <span
+                  className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full"
+                  style={{
+                    backgroundColor: 'var(--accent-violet)',
+                    boxShadow: '0 0 0 2px var(--bg-canvas)',
+                  }}
+                />
+              )}
+            </button>
+
+            <button
               onClick={() => setAlertsOpen(true)}
               className="relative w-9 h-9 rounded-xl border flex items-center justify-center cursor-pointer"
               style={{
@@ -269,6 +297,11 @@ const AppShell: React.FC = () => {
       <QuickActionModal />
       <GlobalSearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
       <AlertsModal open={alertsOpen} onClose={() => setAlertsOpen(false)} />
+      <NewsModal
+        open={newsOpen}
+        onClose={() => setNewsOpen(false)}
+        onHasUnreadChange={setHasUnreadNews}
+      />
       <ProfileModal open={profileOpen} onClose={() => setProfileOpen(false)} />
     </div>
   );
